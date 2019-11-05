@@ -1,10 +1,14 @@
-require 'jwt'
+require "jwt"
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  self.primary_key = :uuid
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
+  has_many :teams, through: :group_users, dependent: :destroy
 
   def create_authentication_token
     if self.authentication_token.present? && verify_authentication_token(self.authentication_token)&.last.key?("alg")
@@ -24,7 +28,7 @@ class User < ApplicationRecord
     begin
       return JWT.decode token, ENV["HMAC_SECRET_KEY"], true, { algorithm: "HS256" }
     rescue
-      return [{error: "Invalid token"}]
+      return [{ error: "Invalid token" }]
     end
   end
 end

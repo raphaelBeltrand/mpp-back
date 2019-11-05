@@ -54,14 +54,15 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "graphql"
-
 gem "graphiql-rails", group: :development
 gem "graphql-errors"
 
-gem "devise"
-
 gem "rufo"
 
+gem "devise"
 gem "jwt"
 
+gem "rest-client"
+
 gem "figaro"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

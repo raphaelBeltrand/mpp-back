@@ -8,5 +8,6 @@ module Types
     field :authentication_token, String, null: false
 
     field :groups, [GroupType], null: false
+    field :teams, [TeamType], null: false
   end
 end
