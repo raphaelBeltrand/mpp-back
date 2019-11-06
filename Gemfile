@@ -61,8 +61,9 @@ gem "rufo"
 
 gem "devise"
 gem "jwt"
+gem "pundit"
 
 gem "rest-client"
 
 gem "figaro"
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem "faker", :git => "https://github.com/faker-ruby/faker.git", :branch => "master"

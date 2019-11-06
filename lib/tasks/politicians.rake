@@ -48,7 +48,7 @@ namespace :politicians do
         oral_questions: 0,
         written_questions: 0,
         reports: 0,
-        presence: 0
+        presence: 0,
       )
     end
   end
