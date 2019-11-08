@@ -10,7 +10,7 @@ class GraphqlController < ApplicationController
     operation_name = params[:operationName]
     context = {
       # Query context goes here, for example:
-      current_user: current_user,
+      current_user: get_current_user,
       authentication_token: get_authentication_token,
     }
     result = MppBackSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
@@ -21,6 +21,10 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def get_current_user
+    User.find_by(authentication_token: get_authentication_token)
+  end
 
   def get_authentication_token
     request.headers["Authorization"]&.split(" ").try(:[], 1)
