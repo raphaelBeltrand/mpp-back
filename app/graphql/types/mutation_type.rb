@@ -11,5 +11,7 @@ module Types
     field :add_politician, mutation: Mutations::Team::AddPolitician
     field :update_politician, mutation: Mutations::Team::UpdatePolitician
     field :delete_team, mutation: Mutations::Team::DeleteTeam
+
+    field :update_user, mutation: Mutations::User::UpdateUser
   end
 end
