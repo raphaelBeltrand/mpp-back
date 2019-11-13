@@ -1,6 +1,6 @@
 class Mutations::User::UpdateUser < Mutations::BaseMutation
-  argument :name, ID, required: false
-  argument :email, ID, required: false
+  argument :name, String, required: false
+  argument :email, String, required: false
 
   field :user, Types::UserType, null: true
 
