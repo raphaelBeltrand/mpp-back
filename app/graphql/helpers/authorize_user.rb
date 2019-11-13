@@ -1,4 +1,3 @@
-module Resolvers
   module Helpers
     class AuthorizeUser
       def initialize(resolve_func)
@@ -14,4 +13,3 @@ module Resolvers
       end
     end
   end
-end
