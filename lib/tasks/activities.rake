@@ -40,12 +40,24 @@ namespace :activities do
       url: "https://www.nosdeputes.fr/synthese/data/json",
     )
 
+    puts "=================================================================" * 2
+    puts "\n" * 5
+    puts response
+    puts "\n" * 5
+    puts "=================================================================" * 2
+
     JSON.parse(response)["deputes"].each do |deputies|
       deputy = deputies["depute"]
 
+      puts "\n" * 5
+      puts deputy
+      puts "\n" * 5
       politician = Politician.find_by(name: deputy["nom"])
       global_activity = Activity.find_by(global: true, politician: politician)
 
+      if politician.blank? || global_activity.blank?
+        next
+      end
       Activity.create!(
         politician: politician,
         start_date: Time.now,
