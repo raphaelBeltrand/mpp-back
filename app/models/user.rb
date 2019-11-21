@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :teams, through: :group_users, dependent: :destroy
 
+  mount_base64_uploader :avatar, AvatarUploader
+
   def create_authentication_token
     if self.authentication_token.present? && verify_authentication_token(self.authentication_token)&.last.key?("alg")
       return self.authentication_token

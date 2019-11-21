@@ -67,3 +67,10 @@ gem "rest-client"
 
 gem "figaro"
 gem "faker", :git => "https://github.com/faker-ruby/faker.git", :branch => "master"
+gem 'aws-sdk-s3'
+gem 'fog'
+gem 'fog-core'
+gem 'fog-aws'
+gem "mini_magick"
+gem 'carrierwave', '~> 1.2.3'
+gem 'carrierwave-base64'
